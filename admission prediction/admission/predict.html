@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<title>Admission Prediction</title>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='predict.css')}}">
+
+</head>
+
+<body onload="loadDistrict()">
+  <nav class="navbar bg-dark navbar-dark">
+
+    <a class="navbar-brand" href="#">
+      <img src="{{ url_for('static', filename='logo.PNG')}}" alt="" width="70" height="50"
+        class="d-inline-block align-text-center">
+      Nexus
+    </a>
+
+    <ul class="nav justify-content-end">
+      <li class="nav-item ">
+        <a class="nav-link white" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link white" href="#">About us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link white" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link white" href="#">Features</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <form method="POST" action="calc">
+    <div class="card">
+      <h4 class="head">Predict your college</h4>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="location" name="location">Location</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <select class="form-control border border-success rounded-2 location" id="inputDistrict" name="location">
+            <option value="" selected>Enter your preferred location</option>
+
+          </select>
+
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="cutoff" name="cutoff">Cut off</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <input class="form-control border border-success rounded-2" type="text" name="cutoff"
+            placeholder="Enter your obtained cutoff" autocomplete="off">
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="department" name="department">Department</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <select class="form-control border border-success rounded-2 location" name="department">
+            <option value="" selected>Enter your preferred department</option>
+            <option value="CSE">Computer Science and engineering(CSE)</option>
+            <option value="IT">Information Technology(IT)</option>
+            <option value="MECH">Mechanical Engineering(MECH)</option>
+            <option value="CIVIL">Civil Engineering(CIVIL)</option>
+            <option value="EEE">Electrical and Electronics Engineering (EEE)</option>
+            <option value="ECE">Electronics & Communication Engineering(ECE)</option>
+
+          </select>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <label for="autonomous" name="autonomous">Autonomous</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <select class="form-control border border-success rounded-2 location" name="autonomous">
+            <option value="" selected>Yes/No</option>
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+
+          </select>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="butt">
+            <button class="btn btn-dark" type="submit" value="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+
+</body>
+<script>
+  function loadDistrict() {
+    var htmlString = "<option value=\"\" selected>Enter your preferred location</option>";
+    var optionsList = ["ARIYALUR", "CHENGALPATTU", "CHENNAI", "COIMBATORE", "CUDDALORE", "DHARMAPURI", "DINDIGUL", "ERODE", "KANCHEEPURAM", "KANNIYAKUMARI", "KARUR", "KRISHNAGIRI", "MADURAI", "NAGAPATTINAM", "NAMAKKAL", "NILGRIS", "PERAMBALUR", "PUDUKKOTTAI", "RAMANATHAPURAM", "RANIPET", "SALEM", "SIVAGANGA", "TENKASI", "THANJAVUR", "THENI", "THIRUNELVELI", "THIRUVALLUR", "THIRUVANNAMALAI", "THIRUVARUR", "TIRUPPUR", "TRICHIRAPPALLI", "TUTICORIN", "VELLORE", "VILLUPURAM", "VIRUDHUNAGAR"];
+    for (var i = 0; i < optionsList.length; i++) {
+      htmlString = htmlString + "<option value='" + optionsList[i] + "'>" + optionsList[i] + "</option>";
+    }
+    $("#inputDistrict").html(htmlString);
+  }
+</script>
+
+</html>

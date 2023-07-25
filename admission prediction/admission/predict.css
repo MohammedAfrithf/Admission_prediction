@@ -1,0 +1,59 @@
+.left {
+  margin-left: 38px;
+  margin-top: 10px;
+  position: fixed;
+}
+
+body {
+  background-color: rgb(43, 51, 54);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.head {
+  margin-top: 5px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.card {
+  position: fixed;
+  margin: 40px;
+
+  height: 525px;
+  width: 1350px;
+  background-color: white;
+  border-radius: 10px;
+
+}
+
+.white {
+  color: #fff;
+}
+
+.white:hover {
+  color: #fff
+}
+
+.location {
+  margin-top: 5px;
+  margin-left: 20px;
+  width: 100%;
+}
+
+input {
+  margin-top: 5px;
+  margin-left: 20px;
+  width: 90%;
+}
+
+label {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.butt {
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 40%;
+}
